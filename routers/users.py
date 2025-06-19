@@ -32,20 +32,14 @@ def dobavit_admin(form:UserS, db:Session = Depends(database), current_user:Users
         raise HTTPException (400, str(e))
 
 
-
-
 @polzovatel_router.put('/put_users')
 def izmenit_polzovatel(ident: int, form: UserS, db: Session = Depends(database), current_user:UsersM=Depends(get_current_user)):
     return update_polzovatel(ident, form, db, current_user)
 
 
-
-
-
 @polzovatel_router.delete('/delete_users')
 def udalit_polzovatel(ident: int, db: Session = Depends(database), current_user:UsersM=Depends(get_current_user)):
     return delete_polzovatel(ident, db, current_user)
-
 
 
 @polzovatel_router.put('/hash_password')
