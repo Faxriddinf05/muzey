@@ -14,7 +14,6 @@ def smotret_polzovateli(db: Session = Depends(database)):
     return db.query(UsersM).all()
 
 
-
 @polzovatel_router.post('/post_users')
 def dobavit_polzovatel(form:UserS, db:Session = Depends(database), current_user: UsersM = Depends(get_current_user)):
     try:
